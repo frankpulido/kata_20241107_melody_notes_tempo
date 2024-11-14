@@ -2,11 +2,6 @@
 declare(strict_types=1);
 require_once "chord.php";
 /*
-Kata 46 per l'especialitat fullstackPHP 7-11-24
-Imagina que estàs assajant acords de guitarra(o de qualsevol instrument musical) i vols una eina que et mostri diferents acords en intervals de temps definits.
-Per tant, el nostre programa necessitarà saber l'interval de temps que passarà entre un acord i altre i els acords a passar.
-Per exemple: vull practicar els acords "Si","La","Do" i vull que es mostri un diferent cada 5 segons.
-Pista: sleep()
 Kata 46 de la especialidad fullstackPHP 7-11-24
 Imagina que estás ensayando acordes de guitarra (o de cualquier instrumento musical) y quieres una herramienta que te muestre distintos acordes en intervalos de tiempo definidos.
 Por tanto, nuestro programa necesitará saber el intervalo de tiempo que pasará entre un acorde y otro y los acordes a pasar.
@@ -16,10 +11,6 @@ Pista: sleep()
 
 $length = 0;
 CONST notes = ['Do','Re','Mi','Fa','Sol','La','Si'];
-
-$notes = [];
-$tempos = [];
-$chord = new Chord($notes, $tempos);
 
 echo PHP_EOL;
 $length = (int) readline("De cuantas notas está compuesta la melodía? ");
@@ -36,11 +27,10 @@ echo PHP_EOL;
 
 
 for ($i = 0; $i < $length; $i++) {
-    echo "Indique el número correspondiente a la nota (0-7) : ";
+    echo "Indique el número correspondiente a la nota (0-6) : ";
     $note = (int) readline();
     $notes [] = notes[$note];
-    echo PHP_EOL;
-    echo "Y el intervalo de tiempo que sigue a la nota $note? : ";
+    echo "Y el intervalo de tiempo que sigue a la nota " . ($notes[$i]) . "? : ";
     $tempos [] = (int) readline();
     echo PHP_EOL;
 }

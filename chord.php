@@ -2,12 +2,12 @@
 declare(strict_types=1);
 
 class Chord {
-    //protected CONST notes = ['Do','Re','Mi','Fa','Sol','La','Si'];
-    protected $notes = [];
-    protected $tempos = [];
-    protected $chord = [];
+    // CONST notes = ['Do','Re','Mi','Fa','Sol','La','Si'];
+    protected array $notes;
+    protected array $tempos;
+    protected array $chord;
 
-    function __construct(array $notes, array $tempos) {
+    function __construct(array $notes = [], array $tempos = []) {
         $this->notes = $notes;
         $this->tempos = $tempos;
         $this->chord = self::compose();
@@ -23,10 +23,12 @@ class Chord {
 
     public function setNotes($notes): void {
         $this->notes = $notes;
+        if (count($this->notes) == count($this->tempos)) { self::compose(); }
     }
 
     public function setTempos($tempos) : void {
         $this->tempos = $tempos;
+        if (count($this->notes) == count($this->tempos)) { self::compose(); }
     }
 
     public function compose () : array {
